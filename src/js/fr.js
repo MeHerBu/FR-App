@@ -42,4 +42,5 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
     alert('お使いのブラウザはサポートしておりません');
 }
 
+
 });

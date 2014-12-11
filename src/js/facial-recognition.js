@@ -67,10 +67,10 @@ $(function(){
                 $(".facial-image-wrapper").eq(index).append('<div class="cover cover-no'+i+'"></div>');
 
                 $(".facial-image-wrapper").eq(index).find(".cover-no"+i).css({
-                    top:obj[i].positionY + "px",
-                    left:obj[i].positionX + "px",
-                    width:obj[i].width + "px",
-                    height:obj[i].height + "px",
+                    top:obj[i].positionY - (obj[i].height*2) + "px",
+                    left: obj[i].positionX - (obj[i].width*2) + "px",
+                    width: obj[i].width*5 + "px",
+                    height: obj[i].height*5 + "px",
                     backgroundImage :'url(./src/frame/'+ frame[i] +'.png)'
                 });
 

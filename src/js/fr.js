@@ -16,16 +16,17 @@ function handleFileSelect(evt) {
 
         var reader = new FileReader();
 
-        // Closure to capture the file information.
         reader.onload = (function(theFile) {
             return function(e) {
-                // Render thumbnail.
-                var $html = ['<img class="photo" src="', e.target.result,'" title="', escape(theFile.name), '">'].join('');
-                $('output').append($html);
+                var $html =
+                    '<output>' +
+                        ['<img class="up_photo" src="', e.target.result,'" title="', escape(theFile.name), '"></output>'].join('') +
+                    '</output>';
+
+                $('main').append($html);
             };
         })(f);
 
-        // Read in the image file as a data URL.
         reader.readAsDataURL(f);
     }
 }
@@ -37,7 +38,19 @@ function handleFileSelect(evt) {
 // --------------------------------------------------------
 // Check for the various File API support.
 if (window.File && window.FileReader && window.FileList && window.Blob) {
-    $('#files').on('change', handleFileSelect);
+    $input_camera = $('#input_camera');
+    $btn_camera = $('.btn_camera');
+
+    $input_camera.on('change', handleFileSelect);
+
+    $input_camera.on('mousedown touchstart', function(){
+        $btn_camera.toggleClass('btn_camera-on');
+    });
+
+    $input_camera.on('mouseup touchend mouseout', function(){
+        $btn_camera.removeClass('btn_camera-on');
+    });
+
 } else {
     alert('お使いのブラウザはサポートしておりません');
 }

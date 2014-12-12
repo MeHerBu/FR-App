@@ -13,6 +13,7 @@ $support-ie6: false;
 $support-ie7: false;
 $support-ie8: false;
 
+$btn_size: 200px;
 
 
 // ===================================================================
@@ -26,6 +27,7 @@ $support-ie8: false;
 // Base
 // ===================================================================
 body { font-family: sans-serif; color: #333; background: #fff; }
+#wrapper {  }
 header, main, footer, output { display: block; text-align: center; }
 
 
@@ -34,26 +36,45 @@ header, main, footer, output { display: block; text-align: center; }
 // Header
 // ===================================================================
 h1 { text-align: center; font-family: 'Raleway', sans-serif; font-size: 32px;
-    margin: 32px 0;}
+    margin: 32px 0; }
 
 
 
 // ===================================================================
 // Main
 // ===================================================================
+main { margin: 0 auto; position: relative; }
 
-#files { margin: 46px auto; padding: 20px; border-radius: 5px; background: #ddd; font-size: 10px; }
+#input_camera, .btn_camera {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    width: $btn_size; height: $btn_size;
+}
 
-.photo {
+#input_camera {
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 60px;
+}
+
+.btn_camera {
+    background: #eee;
+    border: none; border-bottom: 1px solid #bbb;
+    border-radius: ($btn_size / 2);
+
+    img { width: ($btn_size / 2); height: ($btn_size / 2); }
+}
+
+.btn_camera-on { border: none; border-top: 1px solid #bbb; }
+
+.up_photo {
     width: 296px; height: auto;
     margin: 16px 0;
 }
 
 
-
 // ===================================================================
 // Footer
 // ===================================================================
-footer { border-top: 1px solid #eee; padding: 8px; margin-top: 32px; color: #999; font-size: 10px;}
+footer { border-top: 1px solid #eee; padding: 8px; margin-top: 32px; color: #999; font-size: 10px; }
 
 

@@ -9,16 +9,20 @@
     <link rel="stylesheet" href="./src/css/fr.css">
 </head>
 <body>
-    <header>
-        <h1>@css-face</h1>
-    </header>
-    <main>
-        <input type="file" id="files" name="files[]">
-        <output></output>
-    </main>
-    <footer>
-        <small>©MeHer-bu</small>
-    </footer>
+    <div id="wrapper">
+        <header>
+            <h1>@css-face</h1>
+        </header>
+        <main>
+            <button class="btn_camera">
+                <img src="./src/img/icon_camera.svg" >
+            </button>
+            <input type="file" id="input_camera" name="input_camera" accept="image/*" capture="camera">
+        </main>
+        <footer>
+            <small>©MeHer-bu</small>
+        </footer>
+    </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./src/js/fr.js"></script>
 </body>

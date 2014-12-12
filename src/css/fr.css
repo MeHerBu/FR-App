@@ -61,10 +61,6 @@ body {
   background: #fff;
 }
 
-#wrapper {
-  min-width: 320px;
-}
-
 header, main, footer, output {
   display: block;
   text-align: center;

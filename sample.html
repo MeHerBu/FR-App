@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex,nofollow">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>顔認識をするデモ</title>
+
+        <style>
+        .facial-image-wrapper{
+            position:relative;
+        }
+        .cover{
+            position: absolute;
+            -webkit-background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .facial-image{
+        	max-width:100%;
+        	height:auto;
+        }
+        /*
+        .facial-image-border{
+           position:absolute;
+           border:2px solid black;
+        }
+        */
+        textarea{
+        	width:95%;
+        	height:200px;
+        }
+        </style>
+
+		<!-- jQueryライブラリの読み込み -->
+		<script src="./src/js/jquery.min.js"></script>
+		<!-- ライブラリの読み込み -->
+		<script src="./src/js/jquery.facedetection.min.js"></script>
+		<!-- プログラムの実行 -->
+		<script src="./src/js/facial-recognition.js"></script>
+	</head>
+<body>
+
+<figure class="facial-image-wrapper">
+	<img src="./src/img/sample.jpg" class="facial-image">
+</figure>
+
+<figure class="facial-image-wrapper">
+    <img src="./src/img/sample2.jpg" class="facial-image">
+</figure>
+
+<h2>取得したデータの値</h2>
+<textarea id="facial-data" style="height: 32em;"></textarea>
+
+</html>

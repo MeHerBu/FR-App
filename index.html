@@ -1,29 +1,210 @@
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="./src/img/icon.png">
-    <link rel="apple-touch-icon-precomposed" href="./src/img/icon.png">
-    <title>@css-face</title>
-    <link rel="stylesheet" href="./src/css/fr.css">
-</head>
-<body>
-    <div id="wrapper">
-        <header>
-            <h1>@css-face</h1>
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="The Page Description">
+		<style type="text/css">@-ms-viewport{width: device-width;}</style>
+		<title>Hoi game</title>
+		<link rel="stylesheet" href="beetle/css/layers.min.css" media="screen">
+		<link rel="stylesheet" href="beetle/css/font-awesome.min.css" media="screen">
+		<link rel="stylesheet" href="beetle/css/style.css" media="screen">
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+		<link rel="shortcut icon" href="beetle/img/icon.png">
+        <link rel="apple-touch-icon-precomposed" href="beetle/img/icon.png">
+	</head>
+
+	<body class="page">
+
+        <!--header-->
+		<header role="banner" class="transparent light">
+            <div class="row">
+                <div class="nav-inner row-content buffer-left buffer-right even clear-after">
+                    <div id="brand">
+                        <h1 class="reset"><img src="src/img/icon.png" width="50" alt="logo"></h1>
+                    </div><!-- brand -->
+                    <a id="menu-toggle" href="#"><i class="fa fa-bars fa-lg"></i></a>
+                    <nav>
+                        <ul class="reset" role="navigation">
+                            <!-- <li class="menu-item"><a href="#home">Home</a></li> -->
+                            <li class="menu-item"><a href="#game">Game</a></li>
+                            <li class="menu-item"><a href="#technology">Technique</a></li>
+                            <li class="menu-item"><a href="#member">Member</a></li>
+                        </ul>
+                    </nav>
+                </div><!-- row-content -->
+            </div><!-- row -->
         </header>
-        <main>
-            <button class="btn_camera">
-                <img src="./src/img/icon_camera.svg" >
-            </button>
-            <input type="file" id="input_camera" name="input_camera" accept="image/*" capture="camera">
+        <!--/header-->
+
+        <!--main-->
+		<main role="main">
+
+            <div id="intro-wrap" class="full-height">
+                <div id="intro" class="preload darken more-button">
+                    <div class="intro-item">
+                        <div class="caption">
+                            <h2>かおホイ</h2>
+                            <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                            <a class="button white transparent" href="#main">Start</a>
+                        </div><!-- caption -->
+                    </div>
+                </div><!-- intro -->
+            </div><!-- intro-wrap -->
+
+			<div id="main">
+
+                <!--game-->
+                <section class="row section" id="game">
+                    <div class="row-content buffer even clear-after">
+                        <div class="section-title"><h3>Game</h3></div>
+                        <p>ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。ゲームのテキストが入ります。</p>
+
+                    <div class="hoi">
+                        <output>
+                            <p id="txt">あっち向いて...</p>
+                        </output>
+                        <section id="controller">
+                            <button id="btn__up" class="btn">↑</button>
+                            <div>
+                                <button id="btn__left" class="btn">←</button>
+                                <button id="btn__right" class="btn">→</button>
+                            </div>
+                            <button id="btn__down" class="btn">↓</button>
+                        </section>
+                        <div id="movie">movie loading...</div>
+                    </div>
+                    </div>
+
+                </section>
+                <!--/game-->
+
+                <!--home-->
+				<section class="row section" id="technology">
+					<div class="row-content buffer even clear-after">
+						<div class="section-title"><h3>Technology</h3></div>
+						<p>技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。技術のテキストが入ります。</p>
+						<div class="chart" data-percent="73" data-bar-color="#fd685b" data-animate="2000">
+							<div class="chart-content">
+								<div class="percent"></div>
+								<div class="chart-title">User Interface</div>
+							</div><!-- chart-content -->
+						</div><!-- chart -->
+						<div class="chart" data-percent="85" data-bar-color="#ffce54" data-animate="2500">
+							<div class="chart-content">
+								<div class="percent"></div>
+								<div class="chart-title">Front-end</div>
+							</div><!-- chart-content -->
+						</div><!-- chart -->
+						<div class="chart" data-percent="70" data-bar-color="#a0d468" data-animate="3000">
+							<div class="chart-content">
+								<div class="percent"></div>
+								<div class="chart-title">User Experience</div>
+							</div><!-- chart-content -->
+						</div><!-- chart -->
+						<div class="chart" data-percent="95" data-bar-color="#ac92ec" data-animate="3500">
+							<div class="chart-content">
+								<div class="percent"></div>
+								<div class="chart-title">Icon Design</div>
+							</div><!-- chart-content -->
+						</div><!-- chart -->
+					</div>
+				</section>
+                <!--/home-->
+
+                <!--member-->
+                <section id="member" class="row">
+                    <div class="row-content buffer-left buffer-right buffer-bottom clear-after">
+                        <div class="section-title"><h3>Member</h3></div>
+                        <div class="column nine">
+                            <article class="clear-after">
+                                <div class="column three">
+                                    <figure><img src="http://placehold.it/600x600/ddd/fff&text=Beetle%20image" alt=""></figure>
+                                </div><!-- column three -->
+                                <div class="column nine last">
+                                    <h2>Kyota Konno</h2>
+                                    <h5 class="meta-post">部長</h5>
+                                    <p>紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。</p>
+                                </div><!-- column nine -->
+                            </article>
+                            <article class="clear-after">
+                                <div class="column three">
+                                    <figure><img src="http://placehold.it/600x600/ddd/fff&text=Beetle%20image" alt=""></figure>
+                                </div><!-- column three -->
+                                <div class="column nine last">
+                                    <h2>Saori Murakami</h2>
+                                    <h5 class="meta-post">副部長</h5>
+                                    <p>紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。</p>
+                                </div><!-- column nine -->
+                            </article>
+                            <article class="clear-after">
+                                <div class="column three">
+                                    <figure><img src="http://placehold.it/600x600/ddd/fff&text=Beetle%20image" alt=""></figure>
+                                </div><!-- column three -->
+                                <div class="column nine last">
+                                    <h2>Yukiko Nishino</h2>
+                                    <h5 class="meta-post">&nbsp;</h5>
+                                    <p>紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。</p>
+                                </div><!-- column nine -->
+                            </article>
+                            <article class="clear-after">
+                                <div class="column three">
+                                    <figure><img src="http://placehold.it/600x600/ddd/fff&text=Beetle%20image" alt=""></figure>
+                                </div><!-- column three -->
+                                <div class="column nine last">
+                                    <h2>Kenji Morita</h2>
+                                    <h5 class="meta-post">&nbsp;</h5>
+                                    <p>紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。</p>
+                                </div><!-- column nine -->
+                            </article>
+                            <article class="clear-after">
+                                <div class="column three">
+                                    <figure><img src="http://placehold.it/600x600/ddd/fff&text=Beetle%20image" alt=""></figure>
+                                </div><!-- column three -->
+                                <div class="column nine last">
+                                    <h2>Yuka Oshima</h2>
+                                    <h5 class="meta-post">&nbsp;</h5>
+                                    <p>紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。</p>
+                                </div><!-- column nine -->
+                            </article>
+
+                        </div><!-- column nine -->
+                        <aside role="complementary" class="sidebar column three last" style="margin-top:0;">
+                            <div class="widget">
+                                <h4>ミーハー部について</h4>
+                                <div class="textwidget">
+                                    紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。紹介のテキストが入ります。
+                                </div><!-- la class="textwidget" è forse generata automaticamente da wp -->
+                            </div>
+                        </aside>
+                    </div><!-- row-content -->
+                </section>
+                <!--/member-->
+
+        </div>
+        <!--/main-->
         </main>
-        <footer>
-            <small>©MeHer-bu</small>
-        </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="./src/js/fr.js"></script>
-</body>
+        <!--/main-->
+
+        <!--footer-->
+		<footer role="contentinfo">
+			<div class="row">
+                <section id="bottom-footer">
+                    <!-- <p align="center">&copy; Meher-bu All Rights Reserved.</p> -->
+                    <p class="f_logo" align="center"><img src="src/img/logo.png" width="100" alt=""></p>
+                </section><!-- bottom-footer -->
+			</div><!-- row -->
+		</footer>
+        <!--/footer-->
+
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script src="beetle/js/plugins.js"></script>
+		<script src="beetle/js/beetle.js"></script>
+
+	</body>
+
 </html>

@@ -3,7 +3,7 @@ $(function(){
 // --------------------------------------------------------
 // 変数設定
 // --------------------------------------------------------
-var waiteTime = 2000; // 待ち時間
+var waiteTime = 1500; // 待ち時間
 var resultGame = ''; // 勝ち負けフラグ
 
 // DOM
@@ -89,11 +89,11 @@ $buttonPlay.on('click', function(){
     // 初回の場合
     if(resultGame == '') {
         waitGame();
-        return false;
     } else {
     // ゲーム完了後は、ボタンを押すとリロードする
         window.location.reload(true);
     }
+    return false;
 });
 
 });

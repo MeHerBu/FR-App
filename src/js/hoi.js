@@ -3,13 +3,14 @@ $(function(){
 // --------------------------------------------------------
 // 変数設定
 // --------------------------------------------------------
-var waiteTime = 1500; // 待ち時間
+var waiteTime = 3000; // 待ち時間
 var resultGame = ''; // 勝ち負けフラグ
 
 // DOM
 var $buttonPlay = $('.js-buttonPlay');
 var $msgTitle = $('.js-msgTitle');
 var $msgBody = $('.js-msgBody');
+var $hand = $('#handArea img');
 
 
 
@@ -23,25 +24,33 @@ function createRand(mn, mx){
 }
 
 
+// 手画像を回転
+function rotateHand(z){
+    $hand
+    .attr('src', './src/img/hoi-hand/hand_way.png')
+    .css({transform: 'rotateZ(' + z + 'deg)'});
+}
+
+
 // ゲーム結果判定
 function judgeGame(){
     var CPU = createRand(1, 4); // コンピューター
     var USR = judge(); // ユーザーの向き
-    var arrow = ''; // 矢印の向き（あとで画像が入る予定）
+    var angle = ''; // 矢印の向き
 
     // CPUの向き
     switch(CPU){
-        case 1:
-            arrow = '↑';
+        case 1: // ↑
+            angle = 90;
             break;
-        case 2:
-            arrow = '→';
+        case 2: // →
+            angle = 180;
             break;
-        case 3:
-            arrow = '↓';
+        case 3: // ↓
+            angle = 270;
             break;
-        case 4:
-            arrow = '←';
+        case 4: // ←
+            angle = 0;
             break;
     }
 
@@ -51,10 +60,12 @@ function judgeGame(){
         $msgBody.text('もう一回！');
     }else if(USR == CPU){
         resultGame = false;
+        rotateHand(angle);
         $msgTitle.text('負け');
         $msgBody.text('残念でした！');
     } else {
         resultGame = true;
+        rotateHand(angle);
         $msgTitle.text('勝ち');
         $msgBody.text('おめでとう！');
     }
@@ -72,18 +83,8 @@ function waitGame(){
     $msgTitle.text('あっち向いて〜...');
     $msgBody.text('ドキドキ!!');
 
-    $msgTitle
-    .velocity({
-        translateX: '+=100px'
-    }, { duration: waiteTime / 16, easing: 'ease-in-out', loop: 2})
-    .velocity({
-        translateY: '+=100px'
-    }, { duration: waiteTime / 16, easing: 'ease-in-out', loop: 2});
-
     setTimeout(function(){
-
         judgeGame();
-
     }, waiteTime);
 }
 
@@ -109,7 +110,6 @@ $buttonPlay.on('click', function(){
     drawLoop();
 
     return false;
-
 });
 
 
@@ -248,8 +248,3 @@ function judge(){
 
 
 });
-
-
-
-
-

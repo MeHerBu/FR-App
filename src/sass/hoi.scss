@@ -21,8 +21,6 @@ $hand_height : 240px;
 
 #container {
     position: absolute;
-    width: 100%; height: 100%;
-    top: 0; left: 0;
     margin: 0;
 }
 
@@ -30,6 +28,7 @@ $hand_height : 240px;
     margin-top: 70px;
 }
 
+// 全画面
 video {
     position: fixed;
     right: 0;

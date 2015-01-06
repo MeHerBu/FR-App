@@ -2,22 +2,33 @@
 // ===================================================================
 // Setting
 // ===================================================================
-@import "compass";
-@import "compass/reset";
-
-$experimental-support-for-webkit : true !default;
-$experimental-support-for-mozilla : false !default;
-$experimental-support-for-opera : false !default;
-$experimental-support-for-microsoft : false !default;
-$support-ie6: false;
-$support-ie7: false;
-$support-ie8: false;
-
 
 
 // ===================================================================
 // Plugin
 // ===================================================================
+#overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+}
+#videoel {
+    -webkit-transform : scaleX(-1);
+    transform : scaleX(-1);
+}
+#container {
+    position : relative;
+    width : 370px;
+    margin: 0 auto;
+}
+.content {
+    margin-top : 70px;
+    margin-left : 100px;
+    margin-right : 100px;
+    max-width: 950px;
+}
 
 
 

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="beetle/css/layers.min.css" media="screen">
 		<link rel="stylesheet" href="beetle/css/font-awesome.min.css" media="screen">
         <link rel="stylesheet" href="beetle/css/style.css" media="screen">
-		<link rel="stylesheet" href="css/hoi.css" media="screen">
+		<link rel="stylesheet" href="./src/css/hoi.css" media="screen">
 		<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400italic,700italic,400,700" rel="stylesheet">
 		<!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
 		<link rel="shortcut icon" href="src/img/icon.png">
@@ -46,10 +46,18 @@
             <div id="intro-wrap" class="full-height">
                 <div id="intro" class="preload darken more-button">
                     <div class="intro-item">
+
+                        <div class="content">
+                            <div id="container">
+                                <video id="videoel" width="400" height="300" preload="auto" loop=""></video>
+                                <canvas id="overlay" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+
                         <div class="caption">
                             <h2 class="js-msgTitle">かおホイ</h2>
                             <p class="js-msgBody">あっち向いてホイをするよ！「START」ボタンを押したら、上下左右どれかに顔を振ってね。</p>
-                            <a class="button white transparent js-buttonPlay" href="#">Start</a>
+                            <botton class="button white transparent js-buttonPlay">Start</botton>
                         </div><!-- caption -->
                     </div>
                 </div><!-- intro -->
@@ -205,6 +213,23 @@
 		<script src="beetle/js/plugins.js"></script>
         <script src="beetle/js/beetle.js"></script>
         <script src="src/js/velocity.min.js"></script>
+
+        <script src="./src/js/clmtrackr/utils.js"></script>
+        <script src="./src/js/clmtrackr/numeric-1.2.6.min.js"></script>
+        <script src="./src/js/clmtrackr/mosse.js"></script>
+        <script src="./src/js/clmtrackr/jsfeat-min.js"></script>
+        <script src="./src/js/clmtrackr/frontalface.js"></script>
+        <script src="./src/js/clmtrackr/jsfeat_detect.js"></script>
+        <script src="./src/js/clmtrackr/left_eye_filter.js"></script>
+        <script src="./src/js/clmtrackr/right_eye_filter.js"></script>
+        <script src="./src/js/clmtrackr/nose_filter.js"></script>
+        <script src="./src/js/clmtrackr/model_pca_20_svm.js"></script>
+        <script src="./src/js/clmtrackr/clm.js"></script>
+        <script src="./src/js/clmtrackr/svmfilter_webgl.js"></script>
+        <script src="./src/js/clmtrackr/svmfilter_fft.js"></script>
+        <script src="./src/js/clmtrackr/mossefilter.js"></script>
+        <script src="./src/js/clmtrackr/Stats.js"></script>
+
 		<script src="src/js/hoi.js"></script>
 	</body>
 </html>

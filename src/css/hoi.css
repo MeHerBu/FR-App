@@ -14,9 +14,9 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: baseline;
   font: inherit;
   font-size: 100%;
+  vertical-align: baseline;
 }
 
 html {
@@ -28,14 +28,14 @@ ol, ul {
 }
 
 table {
-  border-spacing: 0;
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
 caption, th, td {
-  vertical-align: middle;
   text-align: left;
   font-weight: normal;
+  vertical-align: middle;
 }
 
 q, blockquote {
@@ -52,4 +52,30 @@ a img {
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
+}
+
+#overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#videoel {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#container {
+  position: relative;
+  width: 370px;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 70px;
+  margin-left: 100px;
+  margin-right: 100px;
+  max-width: 950px;
 }

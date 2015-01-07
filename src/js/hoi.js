@@ -56,6 +56,8 @@ function judgeGame(){
 
     // 勝ち負け判定
     if(USR == 0){
+        resultGame = false;
+        rotateHand(angle);
         $msgTitle.text('ちゃんとやって！');
         $msgBody.text('もう一回！');
     }else if(USR == CPU){
@@ -197,20 +199,19 @@ if (navigator.getUserMedia) {
 
 vid.addEventListener('canplay', enablestart, false);
 
+
 function drawLoop() {
+
+    /*
     requestAnimFrame(drawLoop);
     overlayCC.clearRect(0, 0, 400, 300);
 
     if (ctrack.getCurrentPosition()) {
         ctrack.draw(overlay);
     }
+    */
+
 }
-
-// update stats on every iteration
-document.addEventListener('clmtrackrIteration', function(event) {
-    stats.update();
-}, false);
-
 
 // 方向判定
 function judge(){
@@ -232,12 +233,12 @@ function judge(){
 
     if( diff < 15  &&  diff > -15){
         if( point0[1] < point22[1] ){
-            result = 1;//下
+            result = 3;//下
         }else if(point26[1] < point0[1]){
-            result = 2; //上
+            result = 1; //上
         }
     }else if( rDiff < lDiff ){
-        result = 3; //右
+        result = 2; //右
     }else{
         result = 4; //左
     }

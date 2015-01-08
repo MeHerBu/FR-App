@@ -558,11 +558,12 @@ nav ul.sub-menu > li:last-child > a {
     position: absolute;
     width: inherit;
     height: inherit;
-    background-position: center center;
+   /* background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    background-color: #23242b;
 }
 
 #intro.preload .intro-item {

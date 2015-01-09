@@ -75,7 +75,7 @@ function judgeGame(){
     console.log('USR:'+USR+'/CPU:'+CPU);
 
     // ボタン再表示し文言を変更
-    $buttonPlay.show().text('Again');
+    $buttonPlay.show().text('Retry');
 }
 
 

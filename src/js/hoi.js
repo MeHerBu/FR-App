@@ -4,13 +4,13 @@ $(function(){
 // 変数設定
 // --------------------------------------------------------
 var waiteTime = 3000; // 待ち時間
-var resultGame = ''; // 勝ち負けフラグ
+var resultGame; // 勝ち負けフラグ
 
 // DOM
 var $buttonPlay = $('.js-buttonPlay');
 var $msgTitle = $('.js-msgTitle');
 var $msgBody = $('.js-msgBody');
-var $hand = $('#handArea img');
+var $hand = $('#handArea');
 
 
 
@@ -27,60 +27,14 @@ function createRand(mn, mx){
 // 手画像を回転
 function rotateHand(z){
     $hand
-    .attr('src', './src/img/hoi-hand/hand_way.png')
-    .css({transform: 'rotateZ(' + z + 'deg)'});
-}
-
-
-// ゲーム結果判定
-function judgeGame(){
-    var CPU = createRand(1, 4); // コンピューター
-    var USR = judge(); // ユーザーの向き
-    var angle = ''; // 矢印の向き
-
-    // CPUの向き
-    switch(CPU){
-        case 1: // ↑
-            angle = 90;
-            break;
-        case 2: // →
-            angle = 180;
-            break;
-        case 3: // ↓
-            angle = 270;
-            break;
-        case 4: // ←
-            angle = 0;
-            break;
-    }
-
-    // 勝ち負け判定
-    if(USR == 0){
-        resultGame = false;
-        rotateHand(angle);
-        $msgTitle.text('ちゃんとやって！');
-        $msgBody.text('もう一回！');
-    }else if(USR == CPU){
-        resultGame = false;
-        rotateHand(angle);
-        $msgTitle.text('負け');
-        $msgBody.text('残念でした！');
-    } else {
-        resultGame = true;
-        rotateHand(angle);
-        $msgTitle.text('勝ち');
-        $msgBody.text('おめでとう！');
-    }
-
-    console.log('USR:'+USR+'/CPU:'+CPU);
-
-    // ボタン再表示し文言を変更
-    $buttonPlay.show().text('Retry');
+    .empty()
+    .append('<img src="./src/img/hoi-hand/hand_way.png">')
+    .find('img').css({transform: 'rotateZ(' + z + 'deg)'});
 }
 
 
 // ユーザーが首を振る間の待ち時間（ダミーで数秒後に自動的に結果が出るようにしている）
-function waitGame(){
+function analyzingGame(){
     $buttonPlay.hide();
     $msgTitle.text('あっち向いて〜...');
     $msgBody.text('ドキドキ!!');
@@ -91,6 +45,71 @@ function waitGame(){
 }
 
 
+// ゲーム結果判定
+function judgeGame(){
+    var CPU = createRand(1, 4); // コンピューターの向き
+    var USR = judge(); // ユーザーの向き
+    var angle = ''; // 手の向き
+    var arrow = ''; // 検証用矢印
+
+    // CPUの向き
+    switch(CPU){
+        case 1:
+            angle = 90;
+            break;
+        case 2:
+            angle = 180;
+            break;
+        case 3:
+            angle = 270;
+            break;
+        case 4:
+            angle = 0;
+            break;
+    }
+
+    // USRの向き
+    switch(USR){
+        case 1:
+            arrow = '↑';
+            break;
+        case 2:
+            arrow = '→';
+            break;
+        case 3:
+            arrow = '↓';
+            break;
+        case 4:
+            arrow = '←';
+            break;
+    }
+
+    // 勝ち負け判定
+    if(USR == 0){
+        resultGame = false;
+        rotateHand(angle);
+        $msgTitle.text('ちゃんとやって！');
+        $msgBody.text('もう一回！');
+    } else if(USR == CPU){
+        resultGame = false;
+        rotateHand(angle);
+        $msgTitle.text('負け：' + arrow); //検証のため矢印追加
+        $msgBody.text('残念でした！');
+    } else {
+        resultGame = true;
+        rotateHand(angle);
+        $msgTitle.text('勝ち：' + arrow); //検証のため矢印追加
+        $msgBody.text('おめでとう！');
+    }
+
+    // ボタン再表示し文言を変更
+    $buttonPlay.show().text('Retry');
+
+    console.log('USR:' + USR + '/CPU:' + CPU);
+}
+
+
+
 // --------------------------------------------------------
 // トリガー
 // --------------------------------------------------------
@@ -99,10 +118,10 @@ $buttonPlay.on('click', function(){
     if(startFlg == 0) return;
 
     // 初回の場合
-    if(resultGame == '') {
-        waitGame();
+    if(typeof(resultGame) == 'undefined'){
+        analyzingGame();
     } else {
-    // ゲーム完了後は、ボタンを押すとリロードする
+        // ゲーム完了後は、ボタンを押すとリロードする
         window.location.reload(true);
     }
 

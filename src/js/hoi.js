@@ -54,32 +54,32 @@ function judgeGame(){
 
     // CPUの向き
     switch(CPU){
-        case 1:
+        case 1: // ↑
             angle = 90;
             break;
-        case 2:
+        case 2: // →
             angle = 180;
             break;
-        case 3:
+        case 3: // ↓
             angle = 270;
             break;
-        case 4:
+        case 4: // ←
             angle = 0;
             break;
     }
 
     // USRの向き
     switch(USR){
-        case 1:
+        case 1: // ↑
             arrow = '↑';
             break;
-        case 2:
+        case 2: // →
             arrow = '→';
             break;
-        case 3:
+        case 3: // ↓
             arrow = '↓';
             break;
-        case 4:
+        case 4: // ←
             arrow = '←';
             break;
     }

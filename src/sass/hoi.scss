@@ -43,12 +43,12 @@ video {
 
 #handArea {
     position: absolute;
-    background: #fff;
+    background: #23242b;
     width: $hand_width;
     height: $hand_height;
     bottom: 10px;
     left: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    // box-shadow: 0 0 10px rgba(0,0,0,.1);
 
     img { max-width: $hand_width; max-height: $hand_height; margin: 0 auto;}
 }

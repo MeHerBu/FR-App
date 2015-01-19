@@ -169,6 +169,7 @@ document.getElementById('container').appendChild( stats.domElement );
 
 function enablestart() {
     startFlg = 1;
+    $('.cercle').css('display','block');
 }
 
 var insertAltVideo = function(video) {

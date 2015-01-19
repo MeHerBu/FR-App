@@ -53,3 +53,17 @@ video {
     img { max-width: $hand_width; max-height: $hand_height; margin: 0 auto;}
 }
 
+//　顔認識サークル
+.cercle {
+    display: none;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 4px solid rgb(5, 250, 5);
+    position: absolute;
+    top: 110px;
+    z-index: 1;
+    left: 50%;
+    margin-left: -225px;
+    opacity: 0.3;
+}

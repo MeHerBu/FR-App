@@ -40,7 +40,7 @@ function analyzingGame(){
     $msgBody.text('ドキドキ!!');
 
     setTimeout(function(){
-        judgeGame();
+        if(user <= 0 ) judgeGame();
     }, waiteTime);
 }
 
@@ -48,7 +48,7 @@ function analyzingGame(){
 // ゲーム結果判定
 function judgeGame(){
     var CPU = createRand(1, 4); // コンピューターの向き
-    var USR = judge(); // ユーザーの向き
+    var USR = user; // ユーザーの向き
     var angle = ''; // 手の向き
     var arrow = ''; // 検証用矢印
 
@@ -85,11 +85,11 @@ function judgeGame(){
     }
 
     // 勝ち負け判定
-    if(USR == 0){
+    if(USR <= 0){
         resultGame = false;
         rotateHand(angle);
-        $msgTitle.text('ちゃんとやって！');
-        $msgBody.text('もう一回！');
+        $msgTitle.text('もう一度！');
+        $msgBody.text('ごめんなさい、うまく認識できませんでした');
     } else if(USR == CPU){
         resultGame = false;
         rotateHand(angle);
@@ -101,6 +101,9 @@ function judgeGame(){
         $msgTitle.text('勝ち：' + arrow); //検証のため矢印追加
         $msgBody.text('おめでとう！');
     }
+
+    vid.pause();
+    ctrack.stop(vid);
 
     // ボタン再表示し文言を変更
     $buttonPlay.show().text('Retry');
@@ -146,6 +149,7 @@ point37 = 0,
 rDiff = 0,
 lDiff = 0,
 diff = 0,
+user = -1,
 startFlg = 0,
 positionArray = [];
 
@@ -221,24 +225,19 @@ vid.addEventListener('canplay', enablestart, false);
 
 function drawLoop() {
 
-    /*
     requestAnimFrame(drawLoop);
-    overlayCC.clearRect(0, 0, 400, 300);
+    //overlayCC.clearRect(0, 0, 400, 300);
 
-    if (ctrack.getCurrentPosition()) {
-        ctrack.draw(overlay);
+    if (ctrack.getCurrentPosition() && 0 >= user) {
+        //ctrack.draw(overlay);
+        judgeUser();
     }
-    */
-
 }
 
+
 // 方向判定
-function judge(){
+function judgeUser(){
 
-    vid.pause();
-    ctrack.stop(vid);
-
-    var result = 0;
     positionArray = ctrack.getCurrentPosition();
     point1 = positionArray[1];
     point13 = positionArray[13];
@@ -252,17 +251,19 @@ function judge(){
 
     if( diff < 15  &&  diff > -15){
         if( point0[1] < point22[1] ){
-            result = 3;//下
+            user = 3;//下
         }else if(point26[1] < point0[1]){
-            result = 1; //上
+            user = 1; //上
+        }else{
+            user = 0; //真ん中
         }
     }else if( rDiff < lDiff ){
-        result = 2; //右
+        user = 2; //右
     }else{
-        result = 4; //左
+        user = 4; //左
     }
 
-    return result;
+    if(user > 0) judgeGame();
 
 }
 

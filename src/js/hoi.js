@@ -85,11 +85,11 @@ function judgeGame(){
     }
 
     // 勝ち負け判定
-    if(USR == 0){
+    if(USR <= 0){
         resultGame = false;
         rotateHand(angle);
-        $msgTitle.text('ちゃんとやって！');
-        $msgBody.text('もう一回！');
+        $msgTitle.text('もう一度！');
+        $msgBody.text('ごめんなさい、うまく認識できませんでした');
     } else if(USR == CPU){
         resultGame = false;
         rotateHand(angle);
@@ -226,20 +226,14 @@ vid.addEventListener('canplay', enablestart, false);
 function drawLoop() {
 
     requestAnimFrame(drawLoop);
+    //overlayCC.clearRect(0, 0, 400, 300);
+
     if (ctrack.getCurrentPosition() && 0 >= user) {
+        //ctrack.draw(overlay);
         judgeUser();
     }
-
-    /*
-    requestAnimFrame(drawLoop);
-    overlayCC.clearRect(0, 0, 400, 300);
-
-    if (ctrack.getCurrentPosition()) {
-        ctrack.draw(overlay);
-    }
-    */
-
 }
+
 
 // 方向判定
 function judgeUser(){

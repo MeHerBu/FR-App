@@ -244,7 +244,7 @@ jQuery(document).ready(function ($) {
                     // console.log('Disable Parallax');
 
                 } else {
-                    pxContainer.attr('data-top-bottom', 'transform:translateY(' + '-' + pxWrapper.height() / 4 + 'px);');
+                    // pxContainer.attr('data-top-bottom', 'transform:translateY(' + '-' + pxWrapper.height() / 4 + 'px);');
                     header.attr('data-top-bottom', 'transform:translateY(' + '-' + pxWrapper.height() / 4 + 'px);');
                 }
                 animDone = false;
@@ -621,8 +621,8 @@ jQuery(document).ready(function ($) {
         var $this = $('.dribbble-items');
         $this.find('.item:nth-of-type(4n)').addClass('last');
         $this.removeClass('preload');
-        $this.children('.landing-els').remove(); 
-        centerOverlay();           
+        $this.children('.landing-els').remove();
+        centerOverlay();
 
     };
 
@@ -638,9 +638,9 @@ jQuery(document).ready(function ($) {
 
         $(window).load(function() {
 
-            centerOverlay(); 
+            centerOverlay();
 
-        });        
+        });
 
     }
 
@@ -1942,7 +1942,7 @@ jQuery(document).ready(function ($) {
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
-            
+
             google.maps.event.addListener(marker, 'click', function() {
                 infowindow.open(map,marker);
             });

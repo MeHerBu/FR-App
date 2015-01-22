@@ -123,6 +123,7 @@ $buttonPlay.on('click', function(){
     // 初回の場合
     if(typeof(resultGame) == 'undefined'){
         analyzingGame();
+        saveStorage();
     } else {
         // ゲーム完了後は、ボタンを押すとリロードする
         window.location.reload(true);
@@ -267,6 +268,28 @@ function judgeUser(){
     if(user > 0) judgeGame();
 
 }
+
+
+
+// スタートボタンのクリック数をカウント
+var storageKey = "hoi";
+
+function saveStorage() {
+  if (window.localStorage != null) {
+    var value = window.localStorage.getItem(storageKey);
+
+    if(value){
+        window.localStorage.setItem(storageKey,Number(value)+1);
+    }else{
+        window.localStorage.setItem(storageKey,1);
+    }
+
+  }
+}
+
+
+
+
 
 
 });

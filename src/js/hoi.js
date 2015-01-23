@@ -272,18 +272,14 @@ function judgeUser(){
 
 
 // スタートボタンのクリック数をカウント
-var storageKey = "hoi";
+var storageKey = 'hoi';
 
 function saveStorage() {
   if (window.localStorage != null) {
     var value = window.localStorage.getItem(storageKey);
-
-    if(value){
-        window.localStorage.setItem(storageKey,Number(value)+1);
-    }else{
-        window.localStorage.setItem(storageKey,1);
-    }
-
+    (value)? value = Number(value)+1 : value = 1;
+    window.localStorage.setItem(storageKey,value);
+    console.log('click:' + value);
   }
 }
 
